@@ -4,7 +4,8 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import TextareaAutosize from "@mui/base/TextareaAutosize";
-import { Avatar } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import CircularProgress from "@mui/material/CircularProgress";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import Cookies from "js-cookie";
@@ -17,7 +18,10 @@ const BASE_API_URL = import.meta.env.VITE_API_BASE_URL;
 
 function SingleQuestion() {
   const [comment, setComment] = useState("");
+
   const [answer, setAnswer] = useState("");
+
+  const [loading, setLoading] = useState(false);
 
   const [questionData, setQuestionData] = useState();
 
@@ -93,6 +97,7 @@ function SingleQuestion() {
 
   async function fetchAnswerDetails() {
     try {
+      setLoading(true);
       const token = Cookies.get("token");
       const response = await fetch(`${BASE_API_URL}/question/${params}`, {
         method: "GET",
@@ -106,6 +111,7 @@ function SingleQuestion() {
       const data = await response.json();
 
       if (response.ok) {
+        setLoading(false);
         setQuestionData(data.data[0]);
       }
     } catch (error) {
@@ -117,6 +123,21 @@ function SingleQuestion() {
   useEffect(() => {
     fetchAnswerDetails();
   }, []);
+
+  if (loading) {
+    return (
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "100vh",
+        }}
+      >
+        <CircularProgress color="inherit" />
+      </Box>
+    );
+  }
 
   return (
     <Container sx={{ mt: 10, mb: 10 }}>
