@@ -63,7 +63,6 @@ function SingleQuestion() {
       }
     } catch (error) {
       topleftalert({ message: "cannot add comment", icon: "error" });
-      console.log(error);
     }
   }
 
@@ -88,7 +87,6 @@ function SingleQuestion() {
         }),
       });
       const data = await response.json();
-      console.log(data);
       fetchAnswerDetails();
       setAnswer("");
       topleftalert({ message: "answer added successfylly", icon: "success" });
@@ -117,7 +115,6 @@ function SingleQuestion() {
         setQuestionData(data.data[0]);
       }
     } catch (error) {
-      console.log(error);
       topleftalert({ message: "something went wrong", icon: "error" });
     }
   }

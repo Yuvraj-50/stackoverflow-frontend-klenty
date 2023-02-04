@@ -59,7 +59,6 @@ function AskQuestion() {
         topleftalert({ message: "question Added", icon: "success" });
         navigate("/");
       }
-      console.log(formData);
     } catch (error) {
       setloading(false);
       topleftalert({ message: "error while added question", icon: "error" });

@@ -23,7 +23,6 @@ function StackOverFlow() {
   const [allQuestion, setAllQuestion] = useState([]);
 
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(allQuestion);
   async function fetchAllQuestion() {
     try {
       setloading(true);

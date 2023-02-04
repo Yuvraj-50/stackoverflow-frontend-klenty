@@ -35,7 +35,6 @@ function Register() {
     });
 
     const response = await res.json();
-    console.log(response);
     if (res.ok) {
       setLoading(false);
       navigate("/login");

@@ -51,7 +51,6 @@ function Login() {
 
     if (res.ok) {
       Cookies.set("token", data.bearerToken);
-      console.log(data.bearerToken);
       dispatch(getUser(data));
       setLoading(false);
       topleftalert({ message: data.message, icon: "success" });
