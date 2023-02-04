@@ -82,7 +82,7 @@ export default function Navbar() {
     }
 
     try {
-      setSearchParams(`search=${searchValue}`);
+      setSearchParams(`search=${searchValue.trim()}`);
     } catch (error) {
       console.log(error);
       topleftalert({ message: "something went wrong", icon: "error" });

@@ -9,7 +9,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import Cookies from "js-cookie";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { topleftalert } from "../../utils/alert";
 import { formatDate } from "../../utils/formatData";
 import HtmlParser from "react-html-parser";
@@ -28,6 +28,8 @@ function SingleQuestion() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const params = searchParams.get("q");
+
+  const navigate = useNavigate();
 
   function handleAnswerChange(value) {
     setAnswer(value);
@@ -154,7 +156,13 @@ function SingleQuestion() {
           {questionData?.title}
         </Typography>
         <Box>
-          <Button flex={1} variant="contained" onClick={() => {}}>
+          <Button
+            flex={1}
+            variant="contained"
+            onClick={() => {
+              navigate("/askquestion");
+            }}
+          >
             ask Question
           </Button>
         </Box>
