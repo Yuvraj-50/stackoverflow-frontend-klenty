@@ -64,7 +64,7 @@ function AllQuestions({ question }) {
             }}
           >
             <Typography>Asked by {question.user.name}</Typography>
-            <Typography>{formatDate(question.created_at)}</Typography>
+            <Typography>{formatDate(question.createdAt)}</Typography>
           </Box>
         </Box>
       </Card>

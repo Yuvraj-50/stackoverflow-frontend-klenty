@@ -203,7 +203,7 @@ function SingleQuestion() {
             }}
           >
             <Avatar />
-            <Typography>{formatDate(questionData?.created_at)}</Typography>
+            <Typography>{formatDate(questionData?.createdAt)}</Typography>
           </Box>
           <Typography>{questionData?.user.name}</Typography>
         </Box>
@@ -252,7 +252,7 @@ function SingleQuestion() {
                 }}
               >
                 <Typography variant="h6">{answer.user.name}</Typography>
-                <Typography>{formatDate(answer.created_at)}</Typography>
+                <Typography>{formatDate(answer.createdAt)}</Typography>
               </Box>
             </>
           ))}

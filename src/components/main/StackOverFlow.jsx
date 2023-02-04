@@ -23,7 +23,7 @@ function StackOverFlow() {
   const [allQuestion, setAllQuestion] = useState([]);
 
   const [searchParams, setSearchParams] = useSearchParams();
-
+  console.log(allQuestion);
   async function fetchAllQuestion() {
     try {
       setloading(true);
@@ -74,12 +74,9 @@ function StackOverFlow() {
 
   useEffect(() => {
     const searchValue = searchParams.get("search");
-    console.log(searchValue);
     if (!searchValue) {
-      console.log("I got called all question");
       fetchAllQuestion();
     } else {
-      console.log(" i got called searhc else pa");
       getSearchQuestion();
     }
   }, [searchParams]);
