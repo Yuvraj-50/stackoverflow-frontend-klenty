@@ -70,7 +70,7 @@ export default createBrowserRouter(
           }
         />
         <Route
-          path="/login"
+          path="/signin"
           element={
             <Guest>
               <Login />

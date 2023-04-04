@@ -37,7 +37,7 @@ function Register() {
     const response = await res.json();
     if (res.ok) {
       setLoading(false);
-      navigate("/login");
+      navigate("/signin");
     } else {
       topleftalert({ message: response.err, icon: "error" });
       setLoading(false);
@@ -111,7 +111,7 @@ function Register() {
             <Grid item sx={{ display: "flex", gap: 2 }}>
               <Typography
                 sx={{ cursor: "pointer" }}
-                onClick={() => navigate("/login")}
+                onClick={() => navigate("/signin")}
               >
                 Already have an account? Sign In
               </Typography>
