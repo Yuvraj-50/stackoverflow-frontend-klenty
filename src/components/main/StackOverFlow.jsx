@@ -48,6 +48,7 @@ function StackOverFlow() {
   }
 
   async function getSearchQuestion() {
+    setloading(true);
     const token = Cookies.get("token");
     const response = await fetch(
       `${BASE_API_URL}/search/${searchParams.get("search")}`,
@@ -62,6 +63,7 @@ function StackOverFlow() {
     );
 
     if (response.ok) {
+      setloading(false);
       const data = await response.json();
       setAllQuestion(data.data);
     }
